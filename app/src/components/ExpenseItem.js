@@ -1,17 +1,13 @@
 import './ExpenseItem.css';
 
 /* Component in react is just JS function */
-function ExpenseItem() { /* shift + option + F = formatting the code */
-  const expenseDate = new Date(2021, 2, 24);
-  const expenseTitle = 'Car Insurance';
-  const expenseAmount = 294.67;
-  
+function ExpenseItem(props) { /* shift + option + F = formatting the code */
   return (
     <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
+      <div>{props.date.toISOString()}</div>
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">${expenseAmount}</div>
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   );
