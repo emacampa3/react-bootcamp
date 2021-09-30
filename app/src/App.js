@@ -1,4 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
 
 function App() {
   const expenses = [
@@ -26,26 +26,7 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2> {/* lower-case elements are build in, upper-case are custom made */}
-      <ExpenseItem
-        title={expenses[0].title}
-        ampunt={expenses[0].amount}
-        date={expenses[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].title}
-        ampunt={expenses[1].amount}
-        date={expenses[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].title}
-        ampunt={expenses[2].amount}
-        date={expenses[2].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[3].title}
-        ampunt={expenses[3].amount}
-        date={expenses[3].date}
-      ></ExpenseItem>
+      <Expenses item={expenses} />
     </div>
   );
 }
