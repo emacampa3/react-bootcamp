@@ -12,8 +12,9 @@ const ExpenseItem = (props) => { /* shift + option + F = formatting the code */
 
   /* we call useState directly inside a React component functions */
   const [title, setTitle] = useState(props.title); 
+  /* useState gets called each time the title is set and works on a per component instance basis: each component has its own state */
   /* initial value is passed in as an argument and stored inside an array constant: useState always returns an array with 2 elements */
-  /* first element is a pointer to current state value (props.title), a second element is a function whic we cal later call to set a new title */
+  /* first element is a pointer to current state value (props.title), a second element is a function which we can later call to set a new title */
   
   const clickHandler = () => {
     setTitle('Updated!'); /* calling a state-updating function that assigns a new value */
@@ -23,7 +24,7 @@ const ExpenseItem = (props) => { /* shift + option + F = formatting the code */
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{title}</h2> {/*using the state value*/}
         <div className="expense-item__price">${props.amount}</div>
       </div>
       <button onClick={clickHandler}></button>
