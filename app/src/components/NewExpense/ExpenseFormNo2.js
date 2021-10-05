@@ -1,3 +1,5 @@
+/* file is the same as ExpenseFprm.js but uses different approach at useState */
+
 import React, { useState } from 'react';
 
 import "./ExpenseForm.css";

@@ -28,9 +28,9 @@ const ExpenseForm = () => {
 			date: new Date(enteredDate)
 		};
 
-  setEnteredTitle(''); /* two way binding: clears the form after submiting */
-  setEnteredAmount('');
-  setEnteredDate('');
+    setEnteredTitle(''); /* two way binding: clears the form after submiting */
+    setEnteredAmount('');
+    setEnteredDate('');
 	};
 
   return (
