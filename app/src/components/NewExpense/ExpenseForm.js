@@ -7,27 +7,25 @@ const ExpenseForm = () => { /* instead of using three different useState we can 
 		enteredTitle: '',
 		enteredAmount: '',
 		enteredDate: ''
-	})
+	});
 
 	const titleChangeHandler = (event) => { /* we automatically get the event object value at the point of time the event occurs: event.target.value */
-		setUserInput({
-			...userInput, /* manually copying the other data in the object so it does not get lost using the spread operator */
-			enteredTitle: event.target.value,
-		})
+		/* manually copying the other data in the object so it does not get lost using the spread operator */
+		setUserInput((previousState) => {
+			return { ...previousState, enteredTitle: event.target.value }; /* the safest way to operate on the latest snapshot, so no error is possible */
+		});
 	};
 
 	const amountChangeHandler = (event) => {
-		setUserInput({
-			...userInput,
-			enteredAmount: event.target.value,
-		})
+		setUserInput((previousState) => {
+			return { ...previousState, enteredAmount: event.target.value };
+		});
 	};
 	
 	const dateChangeHandler = (event) => {
-		setUserInput({
-			...userInput,
-			enteredDate: event.target.value,
-		})
+		setUserInput((previousState) => {
+			return { ...previousState, enteredDate: event.target.value };
+		});
 	};
 
 	return (
