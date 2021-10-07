@@ -7,7 +7,9 @@ const NewExpense = (props) => {
 			...enteredExpenseData, /* copying the data */
 			id: Math.random().toString() /* adding the new key */
 		};
-		props.onAddExpense(expenseData); /* calling the function */
+		props.onAddExpense(expenseData); 
+		/* calling the function and passing the expense data (recieved on the onAddExpense prop),
+		this is lifting it up to the App component  */
 	};
 
 	return (

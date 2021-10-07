@@ -29,11 +29,13 @@ const App = () => {
 	};
 
 	return (
-		<div>
+		<div> {/* parent component that interacts with both child components */}
       <NewExpense onAddExpense={addExpenseHandler} /> {/* onAddExpense is a function pointer which is passed as an argument, we can then call it inside NewExpense.js */}
-			<Expenses item={expenses} />
+			<Expenses item={expenses} /> {/* passing down the array of expenses */}
 		</div>
 	);
 };
 
 export default App;
+
+/* App.js (root component) -> Expenses.js (two paths) / -> NewExpense.js (fetches the data from another component, which is then passed back up) -> NewForm.js */

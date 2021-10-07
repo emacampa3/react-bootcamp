@@ -25,14 +25,15 @@ const ExpenseForm = (props) => {
 		const expenseData = {
 			title: enteredTitle,
 			amount: enteredAmount,
-			date: new Date(enteredDate)
+			date: new Date(enteredDate),
 		};
 
+		/* receiving a function from the parent component, which we call in the child component */
 		/* passing in the expense data, generated as an argument, which is a value as a parameter in new expense */
 		props.onSaveExpenseData(); /* executing the function from the NewExpense.js: communicating up to the parent component */
-    setEnteredTitle(''); /* two way binding: clears the form after submiting */
-    setEnteredAmount('');
-    setEnteredDate('');
+		setEnteredTitle(""); /* two way binding: clears the form after submiting */
+		setEnteredAmount("");
+		setEnteredDate("");
 	};
 
   return (
@@ -59,3 +60,5 @@ const ExpenseForm = (props) => {
 };
 
 export default ExpenseForm;
+/* communication works only from parent to child and from child to parent, there is no direct connection between two sibling components
+if we want to share information between them, we utilize the closest parent component that has direct on indirect access to both */
