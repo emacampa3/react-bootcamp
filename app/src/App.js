@@ -24,9 +24,13 @@ const App = () => {
 		},
 	];
 
+	const addExpenseHandler = expense => { /* adding a defined function, expense is the parameter */
+
+	};
+
 	return (
 		<div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} /> {/* onAddExpense is a function pointer which is passed as an argument, we can then call it inside NewExpense.js */}
 			<Expenses item={expenses} />
 		</div>
 	);

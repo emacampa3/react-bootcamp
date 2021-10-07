@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -28,6 +28,8 @@ const ExpenseForm = () => {
 			date: new Date(enteredDate)
 		};
 
+		/* passing in the expense data, generated as an argument, which is a value as a parameter in new expense */
+		props.onSaveExpenseData(); /* executing the function from the NewExpense.js: communicating up to the parent component */
     setEnteredTitle(''); /* two way binding: clears the form after submiting */
     setEnteredAmount('');
     setEnteredDate('');
