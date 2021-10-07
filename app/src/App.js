@@ -38,4 +38,4 @@ const App = () => {
 
 export default App;
 
-/* App.js (root component) -> Expenses.js (two paths) / -> NewExpense.js (fetches the data from another component, which is then passed back up) -> NewForm.js */
+/* App.js (root component) -> Expenses.js (path one) / -> NewExpense.js (path two: fetches the data from another component, which is then passed back up) -> NewForm.js */
