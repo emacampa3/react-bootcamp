@@ -19,13 +19,13 @@ const ExpenseItem = (props) => { /* shift + option + F = formatting the code */
   const clickHandler = () => {
     setTitle('Updated!'); /* calling a state-updating function that assigns a new value */
   };
-
+  
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2>{title}</h2> {/*using the state value*/}
-        <div className="expense-item__price">${props.amount}</div>
+  <Card className="expense-item">
+  <ExpenseDate date={props.date} />
+  <div className="expense-item__description">
+  <h2>{title}</h2> {/*using the state value*/}
+  <div className="expense-item__price">${props.amount}</div>
       </div>
     </Card>
   );
