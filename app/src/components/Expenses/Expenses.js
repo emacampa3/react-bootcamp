@@ -18,8 +18,8 @@ const Expenses = (props) => {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
-				{/* map takes in a function that goes over every item in an array;
-				transforming expense object into component */}
+				{/* dynamically assigned data: map takes in a function that loops over 
+					every item in the array; transforming expense object into component */}
 				{props.items.map((expense) => (
 					<ExpenseItem
 						title={expense.title}
