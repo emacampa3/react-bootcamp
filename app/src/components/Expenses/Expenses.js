@@ -22,6 +22,7 @@ const Expenses = (props) => {
 					every item in the array; transforming expense object into component */}
 				{props.items.map((expense) => (
 					<ExpenseItem
+						key={expense.id} /* key is a prop that should be always added when mapping through a list of items: prevents the page from rearanging the divs while updating */
 						title={expense.title}
 						amount={expense.date}
 						date={expense.date}
