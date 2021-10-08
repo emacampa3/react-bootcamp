@@ -11,6 +11,10 @@ const Expenses = (props) => {
 		setFilteredYear(selectedYear);
 	};
 
+	const filteredExpenses = props.items.filter(expense => { /* filter() creates a new array, which is usefull, as we do not want to lose data */
+		return expense.date.getFullYear().toString() === filteredYear; /* returns true if the year, stored in the date object, is the same as filteredYear (year, selected in the filter): only items that match, will be kept in filteredExpenses array */
+	});
+
 	return (
 		<div>
 			<Card className='expenses'>
@@ -20,7 +24,7 @@ const Expenses = (props) => {
 				/>
 				{/* dynamically assigned data: map takes in a function that loops over 
 					every item in the array; transforming expense object into component */}
-				{props.items.map((expense) => (
+				{filteredExpenses.map((expense) => ( /* only showing the expenses that have the same year input as the filter */
 					<ExpenseItem
 						key={expense.id} /* key is a prop that should be always added when mapping through a list of items: prevents the page from rearanging the divs while updating */
 						title={expense.title}
