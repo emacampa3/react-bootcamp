@@ -1,10 +1,10 @@
 /* cleaner version of the code */
 
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "../extra-files/ExpenseFilter";
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
 	const [filteredYear, setFilteredYear] = useState("2021");
@@ -20,19 +20,6 @@ const Expenses = (props) => {
 		); /* returns true if the year, stored in the date object, is the same as filteredYear (year, selected in the filter): only items that match, will be kept in filteredExpenses array */
 	});
 
-	let expensesContent = <p>No expenses found.</p>;
-
-	if (filteredExpenses.length > 0) {
-		expensesContent = filteredExpenses.map((expense) => (
-			<ExpenseItem
-				key={expense.id}
-				title={expense.title}
-				amount={expense.date}
-				date={expense.date}
-			/>
-		));
-	}
-
 	return (
 		<div>
 			<Card className='expenses'>
@@ -40,7 +27,7 @@ const Expenses = (props) => {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
-				{expensesContent} {/* pointing to the variable that behaves in two possible ways */}
+        <ExpensesList items={filteredExpenses} />
 			</Card>
 		</div>
 	);
