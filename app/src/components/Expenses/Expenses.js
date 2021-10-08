@@ -1,3 +1,5 @@
+/* cleaner version of the code */
+
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
@@ -11,9 +13,25 @@ const Expenses = (props) => {
 		setFilteredYear(selectedYear);
 	};
 
-	const filteredExpenses = props.items.filter(expense => { /* filter() creates a new array, which is usefull, as we do not want to lose data */
-		return expense.date.getFullYear().toString() === filteredYear; /* returns true if the year, stored in the date object, is the same as filteredYear (year, selected in the filter): only items that match, will be kept in filteredExpenses array */
+	/* filter() creates a new array, which is usefull, as we do not want to lose data */
+	const filteredExpenses = props.items.filter((expense) => {
+		return (
+			expense.date.getFullYear().toString() === filteredYear
+		); /* returns true if the year, stored in the date object, is the same as filteredYear (year, selected in the filter): only items that match, will be kept in filteredExpenses array */
 	});
+
+	let expensesContent = <p>No expenses found.</p>;
+
+	if (filteredExpenses.length > 0) {
+		expensesContent = filteredExpenses.map((expense) => (
+			<ExpenseItem
+				key={expense.id}
+				title={expense.title}
+				amount={expense.date}
+				date={expense.date}
+			/>
+		));
+	}
 
 	return (
 		<div>
@@ -22,16 +40,7 @@ const Expenses = (props) => {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
-				{/* dynamically assigned data: map takes in a function that loops over 
-					every item in the array; transforming expense object into component */}
-				{filteredExpenses.map((expense) => ( /* only showing the expenses that have the same year input as the filter */
-					<ExpenseItem
-						key={expense.id} /* key is a prop that should be always added when mapping through a list of items: prevents the page from rearanging the divs while updating */
-						title={expense.title}
-						amount={expense.date}
-						date={expense.date}
-					/>
-				))}
+				{expensesContent} {/* pointing to the variable that behaves in two possible ways */}
 			</Card>
 		</div>
 	);
