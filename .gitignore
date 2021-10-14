@@ -1,3 +1,12 @@
+node_modules/
+.eslintcache/
+package-lock.json
+package.json
+favicon.ico/
+logo192.png
+logo512.png
+manifest.json
+.vscode/
 app2/node_modules/.bin/acorn
 app2/node_modules/.bin/ansi-html
 app2/node_modules/.bin/atob
