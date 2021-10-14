@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Button.module.css';
+import styles from './Button.module.css'; /* creates new unique class names */
 
 const Button = props => {
   return (
