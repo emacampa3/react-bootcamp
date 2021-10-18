@@ -23,6 +23,7 @@ const AddUser = (props) => {
   const usernameChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
   };
+  
   const ageChangeHandler = (event) => {
 		setEnteredAge(event.target.value);
 	};
