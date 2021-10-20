@@ -17,7 +17,7 @@ const AddUser = (props) => {
 		const enteredUserAge = ageInputRef.current.value;
     if (
 			enteredName.trim().length === 0 ||
-			enterenteredUserAgeedAge.trim().length === 0
+			enteredUserAge.trim().length === 0
 		) {
 			setError({
 				title: "Invalid input",
@@ -50,7 +50,7 @@ const AddUser = (props) => {
 					<input
 						id='username'
 						type='text'
-						ref={nameInputRef}
+						ref={nameInputRef} /* accesing values with a ref: uncontrolled component */
 					/>
 					<label htmlFor='age'>Age (Years)</label>
 					<input
