@@ -15,7 +15,7 @@ const Login = (props) => {
 		setFormIsValid(
 			enteredEmail.includes("@") && enteredPassword.trim().length > 6
 		);
-	}, [enteredEmail, enteredPassword]);
+	}, [enteredEmail, enteredPassword]); /* setFormIsValid does not need to be in dependencies as it never changes */
 	/* adding the pointers to the functions: after every Login execution, 
   it will rerun useEffect() but only if any dependancies in array is changed,
   otherwise function will not rerun */
