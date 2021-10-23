@@ -12,9 +12,16 @@ const Login = (props) => {
 	const [formIsValid, setFormIsValid] = useState(false);
 
 	useEffect(() => {
-		setFormIsValid(
-			enteredEmail.includes("@") && enteredPassword.trim().length > 6
-		);
+		const identifier = setTimeout(() => {
+			setFormIsValid(
+				enteredEmail.includes("@") && enteredPassword.trim().length > 6
+			);
+		}, 500);
+
+		/* clean-up function: runs before useEffect() runs for the second time */
+		return () => {
+			clearTimeout(identifier); /* if user types a letter every 500ms, the setFormIsValid() will not run until the user stops typing */
+		};
 	}, [enteredEmail, enteredPassword]); /* setFormIsValid does not need to be in dependencies as it never changes */
 	/* adding the pointers to the functions: after every Login execution, 
   it will rerun useEffect() but only if any dependancies in array is changed,
