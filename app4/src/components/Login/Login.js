@@ -51,22 +51,22 @@ const Login = (props) => {
 	}
 
 	const passwordChangeHandler = (event) => {
-		setEnteredPassword(event.target.value)
+		dispatchPassword({ type: "USER_INPUT", val: event.target.value })
 	}
 
 	const validateEmailHandler = () => {
-		setEmailIsValid(enteredEmail.includes("@"))
+		dispatchEmail({ type: "INPUT_BLUR" })
 	}
 
 	const validatePasswordHandler = () => {
-		setPasswordIsValid(enteredPassword.trim().length > 6)
+		dispatchPassword({ type: "INPUT_BLUR" })
 	}
 
 	const submitHandler = (event) => {
 		event.preventDefault()
-		props.onLogin(enteredEmail, enteredPassword)
+		props.onLogin(emailState.value, passwordState.value)
 	}
-
+	
 	return (
 		<Card className={classes.login}>
 			<form onSubmit={submitHandler}>
