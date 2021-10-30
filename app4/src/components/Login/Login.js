@@ -1,52 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from "react"
 
-import Card from '../UI/Card/Card';
-import classes from './Login.module.css';
-import Button from '../UI/Button/Button';
+import Card from "../UI/Card/Card"
+import classes from "./Login.module.css"
+import Button from "../UI/Button/Button"
 
 const Login = (props) => {
-	const [enteredEmail, setEnteredEmail] = useState('');
-	const [emailIsValid, setEmailIsValid] = useState();
-	const [enteredPassword, setEnteredPassword] = useState('');
-	const [passwordIsValid, setPasswordIsValid] = useState();
-	const [formIsValid, setFormIsValid] = useState(false);
+	const [enteredEmail, setEnteredEmail] = useState("")
+	const [emailIsValid, setEmailIsValid] = useState()
+	const [enteredPassword, setEnteredPassword] = useState("")
+	const [passwordIsValid, setPasswordIsValid] = useState()
+	const [formIsValid, setFormIsValid] = useState(false)
 
 	useEffect(() => {
 		const identifier = setTimeout(() => {
 			setFormIsValid(
-				enteredEmail.includes('@') && enteredPassword.trim().length > 6
-			);
-		}, 500);
+				enteredEmail.includes("@") && enteredPassword.trim().length > 6
+			)
+		}, 500)
 
 		/* clean-up function: runs before useEffect() runs for the second time */
 		return () => {
-			clearTimeout(identifier); /* if user types a letter every 500ms, the setFormIsValid() will not run until the user stops typing */
-		};
-	}, [enteredEmail, enteredPassword]); /* setFormIsValid does not need to be in dependencies as it never changes */
+			clearTimeout(
+				identifier
+			) /* if user types a letter every 500ms, the setFormIsValid() will not run until the user stops typing */
+		}
+	}, [
+		enteredEmail,
+		enteredPassword,
+	]) /* setFormIsValid does not need to be in dependencies as it never changes */
 	/* adding the pointers to the functions: after every Login execution, 
   it will rerun useEffect() but only if any dependancies in array is changed,
   otherwise function will not rerun */
 
 	const emailChangeHandler = (event) => {
-		setEnteredEmail(event.target.value);
-	};
+		setEnteredEmail(event.target.value)
+	}
 
 	const passwordChangeHandler = (event) => {
-		setEnteredPassword(event.target.value);
-	};
+		setEnteredPassword(event.target.value)
+	}
 
 	const validateEmailHandler = () => {
-		setEmailIsValid(enteredEmail.includes('@'));
-	};
+		setEmailIsValid(enteredEmail.includes("@"))
+	}
 
 	const validatePasswordHandler = () => {
-		setPasswordIsValid(enteredPassword.trim().length > 6);
-	};
+		setPasswordIsValid(enteredPassword.trim().length > 6)
+	}
 
 	const submitHandler = (event) => {
-		event.preventDefault();
-		props.onLogin(enteredEmail, enteredPassword);
-	};
+		event.preventDefault()
+		props.onLogin(enteredEmail, enteredPassword)
+	}
 
 	return (
 		<Card className={classes.login}>
@@ -86,8 +91,7 @@ const Login = (props) => {
 				</div>
 			</form>
 		</Card>
-	);
-};
+	)
+}
 
-export default Login;
-
+export default Login
