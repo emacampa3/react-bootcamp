@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from "react"
+import React, { useState, useEffect, useReducer, useContext } from "react"
 
 import Card from "../UI/Card/Card"
 import classes from "./Login.module.css"
 import Button from "../UI/Button/Button"
+import AuthContext from "../../context/auth-context"
 
 /* created outside the component function */
 const emailReducerFunction = (state, action) => {
@@ -35,13 +36,12 @@ const Login = (props) => {
 		isValid: null,
 	})
 
-	const [passwordState, dispatchPassword] = useReducer(
-		passwordReducerFunction,
-		{
-			value: "",
-			isValid: null,
-		}
-	)
+	const [passwordState, dispatchPassword] = useReducer(passwordReducerFunction, {
+		value: "",
+		isValid: null,
+	})
+
+	const authCtx = useContext(AuthContext)
 
 	/* the optimal way of updating state:
 	object destructuring with alias assignment: pulling out a value of isValid and storing it inside alias (emailIsValid or passwordIsValid) */
@@ -80,7 +80,7 @@ const Login = (props) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault()
-		props.onLogin(emailState.value, passwordState.value)
+		authCtx.onLogin(emailState.value, passwordState.value)
 	}
 
 	return (
