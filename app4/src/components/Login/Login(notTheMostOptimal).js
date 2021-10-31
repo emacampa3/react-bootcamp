@@ -6,11 +6,11 @@ import Button from "../UI/Button/Button"
 
 /* created outside the component function */
 const emailReducerFunction = (state, action) => {
-	if (action.type === 'USER_INPUT') {
-			return { value: action.val, isValid: action.val.includes('@') };
+	if (action.type === "USER_INPUT") {
+		return { value: action.val, isValid: action.val.includes("@") }
 	}
-	if (action.type === 'INPUT_BLUR') {
-		return { value: state.value, isValid: state.value.includes('@') };
+	if (action.type === "INPUT_BLUR") {
+		return { value: state.value, isValid: state.value.includes("@") }
 	}
 	return { value: "", isValid: false }
 }
@@ -24,7 +24,6 @@ const passwordReducerFunction = (state, action) => {
 	}
 	return { value: "", isValid: false }
 }
-
 
 const Login = (props) => {
 	const [formIsValid, setFormIsValid] = useState(false)
@@ -42,22 +41,6 @@ const Login = (props) => {
 			isValid: null,
 		}
 	)
-
-	/* the optimal way of updating state */
-	/* object destructuring with alias assignment: pulling out a value of isValid and storing it inside alias (emailIsValid or passwordIsValid) */
-	const { isValid: emailIsValid } = emailState
-	const { isValid: passwordIsValid } = passwordState
-	/* when just the value changes, while validity does not, useEffect() will not rerun (once it reaches the valid point) */
-
-	useEffect(() => {
-		const identifier = setTimeout(() => {
-			setFormIsValid(emailIsValid && passwordIsValid)
-		}, 500)
-
-		return () => {
-			clearTimeout(identifier)
-		}
-	}, [emailIsValid, passwordIsValid]) /* dependancies */
 
 	const emailChangeHandler = (event) => {
 		dispatchEmail({
