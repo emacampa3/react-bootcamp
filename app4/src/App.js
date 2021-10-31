@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
+import AuthContext from './context/auth-context';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,14 +27,19 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  /* using context: knowing we need it in our whole app, 
+  we wrap it inside the App.js component: 
+  all components inside Provider and all their children can use context */
   return (
-    <React.Fragment>
+/*  <React.Fragment> no need for using it*/
+    <AuthContext.Provider> 
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
-    </React.Fragment>
+    </AuthContext.Provider>
+/*  </React.Fragment> */
   );
 }
 
