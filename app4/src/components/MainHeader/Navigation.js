@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import classes from './Navigation.module.css';
 import AuthContext from '../../context/auth-context';
 
-const Navigation = (props) => {
+const Navigation = () => {
   const ctx = useContext(AuthContext) /* calling it, using a pointer to the context */
 
   return (
@@ -14,14 +14,14 @@ const Navigation = (props) => {
             <a href="/">Users</a>
           </li>
         )}
-        {prctxops.isLoggedIn && (
+        {ctx.isLoggedIn && (
           <li>
             <a href="/">Admin</a>
           </li>
         )}
         {ctx.isLoggedIn && (
           <li>
-            <button onClick={props.onLogout}>Logout</button>
+            <button onClick={ctx.onLogout}>Logout</button>
           </li>
         )}
       </ul>
