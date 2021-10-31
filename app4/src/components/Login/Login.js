@@ -43,8 +43,8 @@ const Login = (props) => {
 		}
 	)
 
-	/* the optimal way of updating state */
-	/* object destructuring with alias assignment: pulling out a value of isValid and storing it inside alias (emailIsValid or passwordIsValid) */
+	/* the optimal way of updating state:
+	object destructuring with alias assignment: pulling out a value of isValid and storing it inside alias (emailIsValid or passwordIsValid) */
 	const { isValid: emailIsValid } = emailState
 	const { isValid: passwordIsValid } = passwordState
 	/* when just the value changes, while validity does not, useEffect() will not rerun (once it reaches the valid point) */
