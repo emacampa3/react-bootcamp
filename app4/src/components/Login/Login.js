@@ -57,7 +57,9 @@ const Login = (props) => {
 		return () => {
 			clearTimeout(identifier)
 		}
-	}, [emailIsValid, passwordIsValid]) /* dependancies */
+	}, [emailIsValid, passwordIsValid]) 
+	/* dependancies: all the data that is from inside of the 
+	useEffect component function needs to go into an array of dependancies */
 
 	const emailChangeHandler = (event) => {
 		dispatchEmail({
