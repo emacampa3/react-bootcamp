@@ -14,7 +14,7 @@ const emailReducerFunction = (state, action) => {
 	if (action.type === "INPUT_BLUR") {
 		return { value: state.value, isValid: state.value.includes("@") }
 	}
-	return { value: "", isValid: false }
+	return { value: '', isValid: false }
 }
 
 const passwordReducerFunction = (state, action) => {
@@ -24,7 +24,7 @@ const passwordReducerFunction = (state, action) => {
 	if (action.type === "INPUT_BLUR") {
 		return { value: state.value, isValid: state.value.trim().length > 6 }
 	}
-	return { value: "", isValid: false }
+	return { value: '', isValid: false }
 }
 
 const Login = (props) => {
