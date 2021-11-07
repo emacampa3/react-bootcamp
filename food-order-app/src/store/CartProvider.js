@@ -15,7 +15,7 @@ const cartReducerFunction = (state, action) => {
 		const existingCartItemIndex = state.items.findIndex(
 			(item) => item.id === action.item.id
 		)
-		const existingCartItem = state.items(existingCartItemIndex)
+		const existingCartItem = state.items[existingCartItemIndex]
 		let updatedItems
 		
 		if (existingCartItem) {
@@ -29,7 +29,6 @@ const cartReducerFunction = (state, action) => {
 			updatedItems = state.items.concat(action.item)
 		}
 
-		
 		return {
 			items: updatedItems,
 			totalAmount: updatedTotalAmount,
@@ -47,7 +46,7 @@ const cartReducerFunction = (state, action) => {
 			updatedItems = state.items.filter(item => item.id !== action.id)
 		} else {
 			const updatedItem = { ...existingItem, amount: existingItem.amount - 1}
-			updatedItems =[...state.item]
+			updatedItems =[...state.items]
 			updatedItems[existingCartItemIndex] = updatedItem
 		}
 
@@ -66,19 +65,19 @@ const CartProvider = (props) => {
 		defaultCartState
 	)
 
-	const addItemToCart = (item) => {
+	const addItemToCartHandler = (item) => {
 		dispatchCartAction({ type: "ADD_ITEM", item: item })
 	}
 
-	const removeItemFromCart = (id) => {
+	const removeItemFromCartHandler = (id) => {
 		dispatchCartAction({ type: "REMOVE_ITEM", id: id })
 	}
 
 	const cartContext = {
 		items: cartState.items,
 		totalAmount: cartState.totalAmount,
-		addItem: addItemToCart,
-		removeItem: removeItemFromCart,
+		addItem: addItemToCartHandler,
+		removeItem: removeItemFromCartHandler,
 	}
 
 	return (
