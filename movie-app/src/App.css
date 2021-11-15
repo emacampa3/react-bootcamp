@@ -1,18 +1,24 @@
+div {
+  margin: 2rem;
+  text-align: center;
+}
+
 section {
   margin: 1rem auto;
   width: 90%;
   max-width: 40rem;
   text-align: center;
-  background-color: white;
+  background-color: rgb(247, 247, 247);
   padding: 2rem;
   border-radius: 12px;
 }
 
 button {
   font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
   cursor: pointer;
   background: #fff ;
-  border: 1px solid #3f3f3f ;
+  border: 1px solid #444 ;
   color: #3f3f3f;
   padding: 0.75rem 2rem;
   border-radius: 20px;
