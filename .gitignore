@@ -4,6 +4,7 @@ logo512.png
 manifest.json
 robots.txt
 node_modules
+package-lock.json
 
 ./food-order-app/node_modules/
 food-order-app/node_modules/.package-lock.json
