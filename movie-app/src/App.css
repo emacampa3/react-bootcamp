@@ -9,11 +9,11 @@ section {
 }
 
 button {
-  font: inherit;
+  font-family: 'Montserrat', sans-serif;
   cursor: pointer;
-  background: #230052;
-  border: 1px solid #230052;
-  color: white;
+  background: #fff ;
+  border: 1px solid #3f3f3f ;
+  color: #3f3f3f;
   padding: 0.75rem 2rem;
   border-radius: 20px;
 }
@@ -24,6 +24,7 @@ button:focus {
 
 button:hover,
 button:active {
-  background-color: #460897;
-  border-color: #460897;
+  color: #fff;
+  background-color: #378997;
+  border-color: #378997;
 }
