@@ -29,11 +29,11 @@ function App() {
 			<div>
 				<button onClick={fetchMoviesHandler}>Fetch Movies</button>
 			</div>
-			<section>
+			<div>
 				{!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
 				{!isLoading && movies.length === 0 && <p>Found no movies.</p>}
 				{isLoading && <p>Loading ...</p>}
-			</section>
+			</div>
 		</React.Fragment>
 	)
 }
