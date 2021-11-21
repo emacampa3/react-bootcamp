@@ -52,7 +52,7 @@ body {
 .form-control input:focus {
   outline: none;
   border-color: #ccc;
-  background-color: #fafafa;
+  background-color: #f7f7f7;
 }
 
 .control-group {
@@ -92,15 +92,18 @@ button:active {
 }
 
 .invalid input {
-  border: 1px solid #b40e0e;
-  background-color: #fddddd;
+  border: 1px solid #d85555;
+  background-color: #ffe3e3;
 }
 
 .invalid input:focus {
-  border-color: #ff8800;
-  background-color: #fbe8d2;
+  border-color: #d85555;
+  background-color: #fff1f1;
 }
 
 .error-text {
-  color: #b40e0e;
+  font-weight: 300;
+  font-size: 14px;
+  color: #d85555;
+  margin-left: 0.3rem;
 }
