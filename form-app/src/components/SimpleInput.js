@@ -44,7 +44,7 @@ const SimpleInput = (props) => {
 			return
 		}
 
-		console.log(enteredName)
+		console.log(enteredName, enteredEmail)
 
 		setEnteredName("")
     setEnteredNameTouched(false) /* resetting the form */
