@@ -14,11 +14,11 @@ body {
 }
 
 .app {
-  width: 90%;
+  width: 50%;
   max-width: 43rem;
-  padding: 1rem;
   border-radius: 12px;
   background-color: white;
+  padding: 3rem;
   margin: 3rem auto;
 }
 
@@ -93,11 +93,11 @@ button:disabled:active {
 }
 
 .form-actions {
-  text-align: right;
+  text-align: center;
 }
 
 .form-actions button {
-  margin-left: 1rem;
+  margin-top: 1.5rem;
 }
 
 .invalid input {
