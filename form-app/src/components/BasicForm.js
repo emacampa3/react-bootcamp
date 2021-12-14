@@ -12,6 +12,7 @@ const BasicForm = (props) => {
 		InputBlurHandler: firstNameBlurHandler,
 		reset: resetFirstName,
 	} = useInput(isNotEmpty)
+	
 	const {
 		value: lastNameValue,
 		isValid: lastNameIsValid,
@@ -20,6 +21,7 @@ const BasicForm = (props) => {
 		InputBlurHandler: lastNameBlurHandler,
 		reset: resetLastName,
 	} = useInput(isNotEmpty)
+	
 	const {
 		value: emailValue,
 		isValid: emailIsValid,
