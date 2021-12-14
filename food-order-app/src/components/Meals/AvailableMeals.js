@@ -19,7 +19,7 @@ const AvailableMeals = () => {
 			if (!response.ok) {
 				throw new Error(
 					"Something went wrong!"
-				) /* if error occurs, lines thereafter wont execute */
+				) /* if an error occurs, lines thereafter won't execute */
 			}
 
 			const responseData =
