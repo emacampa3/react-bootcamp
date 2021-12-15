@@ -4,6 +4,12 @@
   overflow: auto;
 }
 
+.form p {
+  font-weight: 100;
+  font-size: 0.7rem;
+  margin-top: 0;
+}
+
 .control {
   margin-bottom: 0.5rem;
 }
@@ -12,6 +18,10 @@
   font-weight: bold;
   margin-bottom: 0.25rem;
   display: block;
+}
+
+p {
+  font-weight: 100;
 }
 
 .control input {
@@ -61,5 +71,5 @@
 
 .invalid input {
   border-color: #b54f42;
-  background-color: #c96b5fa4;
+  background-color: rgba(201, 107, 95, 0.344)
 }
