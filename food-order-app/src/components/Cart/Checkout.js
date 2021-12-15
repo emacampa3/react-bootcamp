@@ -3,7 +3,7 @@ import { useRef, useState } from "react"
 import classes from "./Checkout.module.css"
 
 const isEmpty = (value) => value.trim() === ""
-const isFourChars = (value) => value.trim() === 4
+ const isFourChars = (value) => value.trim().length === 4
 
 const Checkout = (props) => {
 	const [formInputsValidity, setFormInputsValidity] = useState({
@@ -42,12 +42,22 @@ const Checkout = (props) => {
 			postalCode: enteredPostalCodeIsValid,
 		})
 
-		const formIsvalid =
-			enteredName && enteredStreet && enteredPostalCode && enteredCity
+		const formIsValid =
+			enteredNameIsValid &&
+			enteredStreetIsValid &&
+			enteredCityIsValid &&
+			enteredPostalCodeIsValid
 
-		if (!formIsvalid) {
+		if (!formIsValid) {
 			return /* to not continue with code execution */
 		}
+
+		props.onConfirm({
+			name: enteredName,
+			street: enteredStreet,
+			city: enteredCity,
+			postalCode: enteredPostalCode
+		})
 	}
 
 	const nameControlClasses = `${classes.control} ${formInputsValidity.name ? '' : classes.invalid}`
@@ -70,9 +80,7 @@ const Checkout = (props) => {
 			<div className={postalControlClasses}>
 				<label htmlFor='postal'>Postal Code</label>
 				<input type='text' id='postal' ref={postalCodeInputRef} />
-				{!formInputsValidity.postalCode && (
-					<p>Please enter a valid postal code (4 charecters long)!</p>
-				)}
+				{!formInputsValidity.postalCode && <p>Please enter a valid postal code (4 charecters long)!</p>}
 			</div>
 			<div className={cityControlClasses}>
 				<label htmlFor='city'>City</label>
