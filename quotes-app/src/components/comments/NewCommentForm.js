@@ -23,7 +23,7 @@ const NewCommentForm = (props) => {
 
 		const enteredText = commentTextRef.current.value
 
-		sendRequestFunction({ text: enteredText })
+		sendRequestFunction({ commentData: { text: enteredText }, quoteId: props.quoteId})
 	}
 
 	return (
