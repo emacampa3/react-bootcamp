@@ -8,7 +8,7 @@ import classes from "./NewCommentForm.module.css"
 const NewCommentForm = (props) => {
 	const commentTextRef = useRef()
 
-	const { sendRequestFunction, status } = useHttp(addComment)
+	const { sendRequestFunction, status, error } = useHttp(addComment)
 
   const {onAddedComment} = props
 

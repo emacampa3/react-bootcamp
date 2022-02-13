@@ -6,7 +6,7 @@ import LoadingSpinner from "./components/UI/LoadingSpinner"
 
 const NewQuote = React.lazy(() => import("./pages/NewQuote"))
 const QuoteDetail = React.lazy(() => import('./pages/Quotedetail'))
-const NotFound = React.lazy(() => import ('./pages.NotFound'))
+const NotFound = React.lazy(() => import ('./pages/NotFound'))
 const AllQuotes = React.lazy(() => import('./pages/AllQuotes'))
 
 function App() {

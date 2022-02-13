@@ -6,7 +6,7 @@ import NewCommentForm from "./NewCommentForm"
 import useHttp from "../../hooks/use-http"
 import { getAllComments } from "../../lib/api"
 import LoadingSpinner from "../ui/LoadingSpinner"
-import CommentsList from '../CommentsList'
+import CommentsList from './CommentsList'
 
 const Comments = () => {
 	const [isAddingComment, setIsAddingComment] = useState(false)
